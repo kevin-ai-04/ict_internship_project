@@ -2,15 +2,18 @@ import { useState } from 'react'
 import './App.css'
 import {Routes, Route} from 'react-router-dom'
 import EventList from './components/EventList'
+import Navbar from './components/Navbar'
+import UserProfile from './components/UserProfile'
+import { AppBar } from '@mui/material'
+import React from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-    <h1>Event List</h1>
+    <Navbar/>
     <Routes>
       <Route path='/' element={<EventList/>}></Route>
+      <Route path='/user' element={<UserProfile/>}></Route>
     </Routes>
     </>
   )
