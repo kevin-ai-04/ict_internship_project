@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminDashboard.css'; 
 
-const Adminhome = () => {
+const AdminDashboard = () => {
     const navigate = useNavigate();
 
     const handleManageUserClick = () => {
@@ -103,4 +103,4 @@ const Adminhome = () => {
     );
 }
 
-export default Admindashboard;
+export default AdminDashboard;
