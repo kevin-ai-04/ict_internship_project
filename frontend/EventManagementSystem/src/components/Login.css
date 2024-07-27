@@ -1,3 +1,13 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -51,7 +61,7 @@ input {
   font-size: 16px;
   background: #2c2c2c;
   color: #fff;
-  box-sizing: border-box; /* Ensure padding is included in the element's width and height */
+  box-sizing: border-box;
   transition: border-color 0.3s ease;
 }
 
@@ -60,21 +70,18 @@ input:focus {
   border-color: #c0392b;
 }
 
-/* button {
+.login-button {
   width: 100%;
   padding: 12px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  box-sizing: border-box; /* Ensure padding is included in the element's width and height */
-  /* transition: background-color 0.3s ease;
-} */
-
-.login-button {
   background-color: #643ce7;
   color: white;
   font-family: 'Playfair Display', serif;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
 .login-button:hover {

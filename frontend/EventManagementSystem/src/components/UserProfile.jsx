@@ -1,86 +1,114 @@
 import React, { useState } from 'react';
-import { Box, Avatar, Typography, Grid, Divider, IconButton, TextField, Container } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
+import './UserProfilePage.css';
 
-const UserProfile = () => {
-  const [editable, setEditable] = useState({
-    username: false,
-    email: false,
-    address: false,
-    nickname: false,
-    dob: false,
+const UserProfilePage = () => {
+  // Example user data using useState hook
+  const [user, setUser] = useState({
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    city: 'New York',
+    profilePicture: 'https://randomuser.me/api/portraits/men/1.jpg'
   });
 
-  const [values, setValues] = useState({
-    username: 'Jenny Wilson',
-    email: 'jenny@gmail.com',
-    address: 'New York, USA',
-    nickname: 'Sky Angel',
-    dob: 'April 28, 1981',
+  // State for form inputs
+  const [formData, setFormData] = useState({
+    name: user.name,
+    email: user.email,
+    city: user.city,
+    profilePicture: null
   });
 
-  const handleEditClick = (field) => {
-    setEditable({ ...editable, [field]: !editable[field] });
+  // Handle form input changes
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
-  const handleChange = (field, event) => {
-    setValues({ ...values, [field]: event.target.value });
+  // Handle file input change
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFormData({
+        ...formData,
+        profilePicture: URL.createObjectURL(file)
+      });
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setUser({
+      ...user,
+      name: formData.name,
+      email: formData.email,
+      city: formData.city,
+      profilePicture: formData.profilePicture ? formData.profilePicture : user.profilePicture
+    });
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box
-        sx={{
-          mt: 5,
-          p: 4,
-          borderRadius: 2,
-          boxShadow: 3,
-          bgcolor: '#fff',
-          textAlign: 'center',
-        }}
-      >
-        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-          <Avatar
-            alt="Jessica Alba"
-            src="https://www.shutterstock.com/image-illustration/bright-portrait-cute-smiling-kawaii-260nw-2387969365.jpg"
-            sx={{ width: 100, height: 100 }}
-          />
-        </Box>
-        <Typography variant="h5">
-          Jessica Alba
-        </Typography>
-        <Typography variant="subtitle1" sx={{ color: 'text.secondary', mb: 2 }}>
-          @jennywilson
-          <IconButton size="small" onClick={() => handleEditClick('username')}>
-            <EditIcon fontSize="small" />
-          </IconButton>
-        </Typography>
-        <Divider sx={{ mb: 3 }} />
-        <Grid container spacing={2} justifyContent="center">
-          {['username', 'email', 'address', 'nickname', 'dob'].map((field) => (
-            <Grid item xs={12} key={field}>
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Typography variant="body1" sx={{ flexGrow: 1, textTransform: 'capitalize' }}>
-                  {field}
-                </Typography>
-                <TextField
-                  variant="outlined"
-                  size="small"
-                  value={values[field]}
-                  onChange={(event) => handleChange(field, event)}
-                  disabled={!editable[field]}
-                  sx={{ flexGrow: 2, mx: 1 }}
-                />
-                <IconButton size="small" onClick={() => handleEditClick(field)}>
-                  <EditIcon fontSize="small" />
-                </IconButton>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-    </Container>
+    <div className="profile-container">
+      <div className="profile-card">
+        <div className="profile-header">
+          <img src={user.profilePicture} alt="Profile" className="profile-picture" />
+          <h2 className="profile-name">{user.name}</h2>
+          <p className="profile-email">{user.email}</p>
+          <p className="profile-city">{user.city}</p>
+        </div>
+        <form onSubmit={handleSubmit} className="profile-form">
+          <h3 className="form-header">Update Profile</h3>
+          <div className="form-group">
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="form-control"
+              value={formData.name}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="form-control"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="city">City:</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              className="form-control"
+              value={formData.city}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="profilePicture">Profile Picture:</label>
+            <input
+              type="file"
+              id="profilePicture"
+              name="profilePicture"
+              className="form-control"
+              onChange={handleFileChange}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
   );
-};
+}
 
-export default UserProfile;
+export default UserProfilePage;

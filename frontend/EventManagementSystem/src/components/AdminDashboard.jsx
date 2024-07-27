@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AdminDashboard.css'; // Import the CSS file
+import './AdminDashboard.css'; 
 
-const AdminDashboard = () => {
+const Adminhome = () => {
     const navigate = useNavigate();
 
     const handleManageUserClick = () => {
@@ -22,7 +22,6 @@ const AdminDashboard = () => {
     }
 
     const handleLogoutClick = () => {
-        // Add logout logic here
         navigate('/login');
     }
 
@@ -104,4 +103,4 @@ const AdminDashboard = () => {
     );
 }
 
-export default AdminDashboard;
+export default Admindashboard;
