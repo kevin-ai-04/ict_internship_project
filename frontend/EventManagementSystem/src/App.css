@@ -19,7 +19,7 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
+/* @keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -32,7 +32,7 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
+} */
 
 .card {
   padding: 2em;
@@ -48,7 +48,12 @@
 }
 
 .Navbar{
-  padding: 8px
+  padding: 8px;
+  background-color: white;
+}
+
+.MuiToolbar-root, .css-1g467ij-MuiToolbar-root{
+  background-color: rgb(0, 0, 0);
 }
 
 /* .miniCard{
@@ -63,14 +68,26 @@
   padding: 20px;
 } */
 
+
 .miniCardCollection{
+  min-width: 320px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  margin-top: 1400px;
+  margin-top: 60px;
+}
+.miniCardCollection h2{
+  color: white;
+  font-weight: 600;
+  font-size: 40px;
+
+  text-align: left;
 }
 
+
 .miniCard {
+  background-color: rgb(44, 44, 50);
   text-align: left;
   gap: 20px;
   display: flex;
@@ -117,23 +134,24 @@
 .cardHeader h2 {
   margin: 0;
   font-size: 1.5em;
-  color: #333;
+  font-weight: 500;
+  color: #ffffff;
 }
 
 .cardHeader .price {
   font-size: 1.25em;
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
 }
 
 .cardContent p {
   margin: 8px 0;
-  color: #666;
+  color: #b5b5b5;
 }
 
 .cardContent .location {
   font-size: 1em;
-  color: #666;
+  color: #a4a4a4;
   align-self: flex-start;
 }
 

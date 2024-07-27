@@ -19,7 +19,7 @@ const Navbar = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h5" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
-              Event Management
+              Events+
             </Typography>
             <div className='NavBarButtons'>
               <Link to={'/'}><button>Home</button></Link>

@@ -12,11 +12,14 @@ const EventList = () => {
   }, []);
 
   return (
+    <>
     <div className='miniCardCollection'>
+    <h2>Upcoming Concerts</h2>
       {events.map(event => (
         <MiniCard key={event.eventID} event={event} />
       ))}
     </div>
+    </>
   );
 };
 
