@@ -5,17 +5,7 @@
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin: 0;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1e1e2f;
-    padding: 1rem 2rem;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 64px;
 }
 
 .logo {
@@ -43,12 +33,13 @@
     padding: 3rem 2rem;
     text-align: center;
     flex-grow: 1;
+    color: white;
 }
 
 .admin-home-content h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #2c3e50;
+    color: #e3e2ff;
 }
 
 .button-group {
@@ -97,55 +88,49 @@
     gap: 2rem;
 }
 
-.event-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    width: 280px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
 .event-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+.event-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: left;  /* Changed from center to left */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .event-card h3 {
     margin: 0 0 1rem 0;
     color: #333;
     font-size: 1.5rem;
+    text-align: left;  /* Ensure header text is left-aligned */
 }
 
 .event-card p {
     margin: 0 0 1rem 0;
     color: #666;
     font-size: 1rem;
+    text-align: left;  /* Ensure paragraph text is left-aligned */
 }
 
-.music-card {
-    background-color: #ffebcd;
+.card-images {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;  /* Align images to the left */
+    flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
-.dance-card {
-    background-color: #ffe4e1;
-}
-
-.arts-card {
-    background-color: #e6e6fa;
-}
-
-.painting-card {
-    background-color: #fffacd;
-}
-
-.racing-card {
-    background-color: #f0fff0;
-}
-
-.gaming-card {
-    background-color: #f5f5dc;
+.card-images img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .edit-button,

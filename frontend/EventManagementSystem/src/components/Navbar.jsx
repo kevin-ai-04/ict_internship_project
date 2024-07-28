@@ -29,9 +29,6 @@ const Navbar = () => {
             <StyledLink to="/">
               <NavButton>Home</NavButton>
             </StyledLink>
-            <StyledLink to="/list">
-              <NavButton>Details</NavButton>
-            </StyledLink>
             <StyledLink to="/user">
               <NavButton>User</NavButton>
             </StyledLink>
