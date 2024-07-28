@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MiniCard = ({ event }) => {
   return (
@@ -14,7 +15,7 @@ const MiniCard = ({ event }) => {
         <p>{event.eventDescription}</p>
         <div className='cardFooter'>
           <p className="location">{event.location}</p>
-          <p className='cardArrow'>→</p>
+          <Link to={'/list'}><p className='cardArrow'>→</p></Link>
         </div>
       </div>
     </div>

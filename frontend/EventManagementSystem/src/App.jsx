@@ -9,6 +9,7 @@ import React from 'react';
 import AdminDashboard from './components/AdminDashboard'
 import LoginPage from './components/LoginPage'
 import SignUpPage from './components/SignUpPage'
+import List from './components/List'
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <Route path='/user' element={<UserProfile/>}></Route>
       <Route path='/admin' element={<AdminDashboard/>}></Route>
       <Route path="/login" element={<LoginPage/>} />
-      <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/signup" element={<SignUpPage/>} />
+      <Route path="/list" element={<List/>} />
     </Routes>
     </>
   )

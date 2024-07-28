@@ -1,36 +1,50 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Box } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { styled } from '@mui/system';
+
+const StyledLink = styled(Link)({
+  textDecoration: 'none',
+});
+
+const NavButton = styled(Button)({
+  color: 'white',
+  margin: '0 10px',
+  '&:hover': {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    transform: 'scale(1.1)',
+    transition: 'transform 0.3s',
+  },
+});
 
 const Navbar = () => {
   return (
-    <>
-      <Box sx={{ flexGrow: 1 }}>
-      <AppBar sx={{ width: '100%', position: 'fixed', top: 0, left: 0, zIndex: 1000}}>
-          <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', }}>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h5" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
-              Events+
-            </Typography>
-            <div className='NavBarButtons'>
-              <Link to={'/'}><button>Home</button></Link>
-              <Link to={'/user'}><button>User</button></Link>
-              <Link to={'/admin'}><button>Admin</button></Link>
-              <Link to={'/login'}><button>Log In</button></Link>
-            </div>
-          </Toolbar>
-        </AppBar>
-      </Box>
-    </>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="fixed">
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant="h5" component="div" className="navbar-title">
+            Events+
+          </Typography>
+          <Box>
+            <StyledLink to="/">
+              <NavButton>Home</NavButton>
+            </StyledLink>
+            <StyledLink to="/list">
+              <NavButton>Details</NavButton>
+            </StyledLink>
+            <StyledLink to="/user">
+              <NavButton>User</NavButton>
+            </StyledLink>
+            <StyledLink to="/admin">
+              <NavButton>Admin</NavButton>
+            </StyledLink>
+            <StyledLink to="/login">
+              <NavButton>Log In</NavButton>
+            </StyledLink>
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 };
 
