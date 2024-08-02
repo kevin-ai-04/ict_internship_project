@@ -22,6 +22,7 @@ function App() {
       <Route path="/login" element={<LoginPage/>} />
       <Route path="/signup" element={<SignUpPage/>} />
       <Route path="/list" element={<List/>} />
+      <Route path="/list/:eventID" element={<List />} />
     </Routes>
     </>
   )

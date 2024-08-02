@@ -4,8 +4,8 @@ import './UserProfilePage.css';
 const UserProfilePage = () => {
   // Example user data using useState hook
   const [user, setUser] = useState({
-    name: 'John Doe',
-    email: 'john.doe@example.com',
+    name: 'Rohit',
+    email: 'rohitbnair1@gmail.com',
     city: 'New York',
     profilePicture: 'https://randomuser.me/api/portraits/men/1.jpg'
   });
