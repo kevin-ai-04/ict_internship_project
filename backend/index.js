@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express(); //creating an instance 'app' of express
+const app = express();
 const cors = require('cors');
 const PORT = 4000;
 const eventModel = require('./model/eventData');
@@ -10,20 +10,21 @@ app.use(express.json());
 
 // To fetch all event data
 app.get('/events', async (req, res) => {
-  console.log('inside');
+  console.log('Fetching all events');
   try {
     const data = await eventModel.find();
-    res.send(data);
+    res.json(data);
   } catch (error) {
     console.log(error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
 // To fetch a single event by eventID
 app.get('/events/:eventID', async (req, res) => {
   try {
-    const eventID = req.params.eventID;
-    const event = await eventModel.findById(eventID); // Assuming eventID is the MongoDB _id
+    const eventID = parseInt(req.params.eventID, 10); // Assuming eventID is numeric
+    const event = await eventModel.findOne({ eventID: eventID }); // Query by eventID field
     if (event) {
       res.json(event);
     } else {
@@ -38,12 +39,13 @@ app.get('/events/:eventID', async (req, res) => {
 // To create a new event
 app.post('/newevent', async (req, res) => {
   try {
-    var item = req.body;
+    const item = req.body;
     const datasave = new eventModel(item);
-    const saveddata = await datasave.save();
+    await datasave.save();
     res.send('Post successful');
   } catch (error) {
     console.log(error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
@@ -54,6 +56,7 @@ app.delete('/eventremoval/:id', async (req, res) => {
     res.send('Deleted successfully');
   } catch (error) {
     console.log(error);
+    res.status(500).send('Internal Server Error');
   }
 });
 

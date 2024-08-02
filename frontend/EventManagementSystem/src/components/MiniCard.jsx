@@ -15,7 +15,7 @@ const MiniCard = ({ event }) => {
         <p>{event.eventDescription}</p>
         <div className='cardFooter'>
           <p className="location">{event.location}</p>
-          <Link to={`/list/${event.eventID}`}><p className='cardArrow'>→</p></Link>
+          <Link to={`/list/${event.eventID}`}><p className='cardArrow hover-this'>→</p></Link>
         </div>
       </div>
     </div>

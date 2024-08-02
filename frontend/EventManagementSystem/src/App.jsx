@@ -10,11 +10,13 @@ import AdminDashboard from './components/AdminDashboard'
 import LoginPage from './components/LoginPage'
 import SignUpPage from './components/SignUpPage'
 import List from './components/List'
+import Cursor from './components/Cursor'
 
 function App() {
   return (
     <>
     <Navbar/>
+     <Cursor /> {/*Add the Cursor component */}
     <Routes>
       <Route path='/' element={<EventList/>}></Route>
       <Route path='/user' element={<UserProfile/>}></Route>
