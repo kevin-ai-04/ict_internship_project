@@ -11,9 +11,8 @@
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 0 25px rgba(233, 226, 226, 0.5);
-  text-align: center;
-  max-width: 400px;
   width: 100%;
+  max-width: 500px;
   animation: fadeIn 1.5s ease-in-out;
 }
 
@@ -29,10 +28,20 @@
 
 .input-group {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 
-input {
-  width: 100%;
+.input-group label {
+  font-weight: bold;
+  margin-right: 15px;
+  color: #333;
+  width: 150px; /* Adjust as needed */
+  text-align: left;
+}
+
+.input-group input, .input-group textarea {
+  flex: 1;
   padding: 12px;
   border: 1px solid #1818e1;
   border-radius: 5px;
@@ -43,7 +52,7 @@ input {
   transition: border-color 0.3s ease;
 }
 
-input:focus {
+.input-group input:focus, .input-group textarea:focus {
   outline: none;
   border-color: #6845c1;
 }
@@ -70,6 +79,7 @@ input:focus {
 .login-prompt {
   margin-top: 20px;
   color: #070707;
+  text-align: center;
 }
 
 .login-prompt a {

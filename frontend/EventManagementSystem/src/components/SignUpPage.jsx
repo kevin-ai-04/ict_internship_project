@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './Signup.css';
 
 function SignUpPage() {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -13,7 +15,30 @@ function SignUpPage() {
       alert("Passwords do not match!");
       return;
     }
-    console.log('Sign up attempted with:', email, password);
+
+    // Prepare the data to be sent to the backend
+    const userData = {
+      userName: name,
+      userPhone: phone,
+      userEmail: email,
+      userPassword: password,
+    };
+
+    // Send POST request to the backend
+    fetch('http://localhost:4000/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    })
+    .then(response => response.text())
+    .then(message => {
+      console.log(message);
+      // Redirect or show success message
+      // e.g., navigate to login or homepage
+    })
+    .catch(error => console.error('Error signing up:', error));
   };
 
   return (
@@ -25,6 +50,29 @@ function SignUpPage() {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              placeholder="Name"
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="phone">Phone Number:</label>
+            <input
+              type="text"
+              id="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              placeholder="Phone Number"
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="email">Email:</label>
             <input
               type="email"
               id="email"
@@ -35,6 +83,7 @@ function SignUpPage() {
             />
           </div>
           <div className="input-group">
+            <label htmlFor="password">Password:</label>
             <input
               type="password"
               id="password"
@@ -45,6 +94,7 @@ function SignUpPage() {
             />
           </div>
           <div className="input-group">
+            <label htmlFor="confirm-password">Confirm Password:</label>
             <input
               type="password"
               id="confirm-password"

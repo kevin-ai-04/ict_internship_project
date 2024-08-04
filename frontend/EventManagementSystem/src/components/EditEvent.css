@@ -1,0 +1,98 @@
+.edit-event-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    padding: 2rem;
+    width: 1000px;
+    margin-top: 100px;
+    border-radius: 12px;
+}
+
+.edit-event-content {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-event-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.event-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    flex: 0 0 150px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    align-self: center;
+}
+
+.submit-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.cancel-button {
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    align-self: center;
+    margin-left: 1rem;
+}
+
+.cancel-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}

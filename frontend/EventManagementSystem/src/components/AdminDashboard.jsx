@@ -17,21 +17,24 @@ const AdminDashboard = () => {
         navigate('/admin/user');
     };
 
-    const handleManageEventsClick = () => {
-        navigate('/manageevents');
-    };
-
     const handleAddEventClick = () => {
         navigate('/addevent');
     };
-
 
     const handleEditClick = (eventID) => {
         navigate(`/editevent/${eventID}`);
     };
 
     const handleDeleteClick = (eventID) => {
-        console.log(`Delete event with ID: ${eventID}`);
+        fetch(`http://localhost:4000/events/${eventID}`, {
+            method: 'DELETE',
+        })
+        .then(response => response.text())
+        .then(message => {
+            console.log(message);
+            setEvents(events.filter(event => event.eventID !== eventID));
+        })
+        .catch(error => console.error('Error deleting event:', error));
     };
 
     return (
@@ -40,7 +43,6 @@ const AdminDashboard = () => {
                 <h1>Admin Home Page</h1>
                 <div className="button-group">
                     <button className="nav-button" onClick={handleUsersClick}>Show Users</button>
-                    <button className="nav-button" onClick={handleManageEventsClick}>Manage Events</button>
                     <button className="nav-button" onClick={handleAddEventClick}>Add New Event</button>
                 </div>
             </div>

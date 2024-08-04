@@ -12,6 +12,8 @@ import SignUpPage from './components/SignUpPage'
 import List from './components/List'
 import Cursor from './components/Cursor'
 import AdminUsers from './components/AdminUsers'
+import AddEvent from './components/AddEvent'
+import EditEvent from './components/EditEvent'
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route path='/user' element={<UserProfile/>}></Route>
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/admin/user" element={<AdminUsers />} />
+      <Route path="/addevent" element={<AddEvent />} />
+      <Route path="/editevent/:eventID" element={<EditEvent />} />
       <Route path="/login" element={<LoginPage/>} />
       <Route path="/signup" element={<SignUpPage/>} />
       <Route path="/list" element={<List/>} />
