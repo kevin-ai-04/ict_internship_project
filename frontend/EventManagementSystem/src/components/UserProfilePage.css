@@ -132,22 +132,22 @@
 .events-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   background: #181a26;
   border-radius: 20px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   padding-left: 40px;
   transition: transform 0.3s, box-shadow 0.3s;
   color: #ffffff;
-  flex: 2;
+  flex: 1;
   transform: scale(0.85);
-  transform-origin: top left; /* Adjust the origin to the top-left corner */
-  
+  transform-origin: left top; /* Adjust the origin to the top-left corner */
 }
 
 .events-header {
   font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 30px;
+  font-weight: 400;
+  /* margin-bottom: 30px; */
   color: #ffffff;
 }
 

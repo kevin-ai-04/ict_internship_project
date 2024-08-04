@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MiniCard from './MiniCard';
+import './EventList.css'
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
@@ -13,13 +14,14 @@ const EventList = () => {
 
   return (
     <>
-      <div className='miniCardCollection' >
-        <h2>Upcoming Concerts</h2>
-        {events.map(event => (
-          <MiniCard key={event.eventID} event={event} />
-        ))}
+      <div className='eventListWrapper'>
+        <h2 className='eventListHeader'>Upcoming Concerts</h2>
+        <div className='miniCardCollection' >
+          {events.map(event => (
+            <MiniCard key={event.eventID} event={event} />
+          ))}
+        </div>
       </div>
-      <div className="cursor"></div>
     </>
   );
 };

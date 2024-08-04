@@ -1,0 +1,132 @@
+/* Mini Card Collection */
+.miniCardCollection {
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.eventListHeader {
+    color: white;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: left;
+    margin-top: 120px;
+}
+
+/* Mini Card */
+.miniCard {
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    gap: 20px;
+    display: flex;
+    flex-grow: 1;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 700px;
+    max-width: 400px;
+    height: 370px;
+}
+
+.cardImage {
+    display: flex;
+    align-items: center;
+}
+
+.cardImage img {
+    width: 300px;
+    height: auto;
+}
+
+.cardContent {
+    padding: 12px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardRight {
+    padding-right: 16px;
+    padding-top: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.cardHeader h2 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #000000;
+}
+
+.miniCard .price {
+    font-size: 1.25em;
+    font-weight: 500;
+    color: #27af2c;
+}
+
+.cardContent p {
+    margin: 8px 0;
+    color: #242424;
+}
+
+.eventDates p {
+    margin: 4px 0;
+    color: #242424;
+
+}
+
+.status {
+    font-size: 1em;
+    font-weight: bold;
+    color: #000000;
+    margin: 8px 0;
+}
+
+.status.open {
+    color: green;
+}
+
+.status.closed {
+    color: red;
+}
+
+.cardContent .location {
+    font-size: 1em;
+    color: #626262;
+    align-self: flex-start;
+}
+
+.cardArrow {
+    display: flex;
+    align-self: flex-end;
+    padding: 0 16px;
+    font-size: 1.5em;
+    color: #000000;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.cardArrow:hover {
+    transform: scale(1.5);
+    color: #ff4081;
+}
