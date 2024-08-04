@@ -10,6 +10,9 @@ import PaidIcon from '@mui/icons-material/Paid';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { styled } from '@mui/system';
 import { useParams } from 'react-router-dom';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
+import TextField from '@mui/material/TextField';
 
 // const StandardImageList = ({ images }) => {
 //   return (
@@ -74,6 +77,18 @@ const StyledButton = styled(Button)({
 });
 
 const List = () => {
+  const [likeCount, setLikeCount] = useState(2);
+  const [commentVisible, setCommentVisible] = useState(false);
+
+
+  const handleLikeClick = () => {
+    setLikeCount(likeCount + 1);
+  };
+
+  const toggleCommentVisibility = () => {
+    setCommentVisible(!commentVisible);
+  };
+
   const [event, setEvent] = useState(null);
   const { eventID } = useParams();
 
@@ -99,7 +114,8 @@ const List = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={4}>
+        {/* Artist Box */}
+        <Grid item xs={12} sm={6} md={4}> 
         <Card sx={{ 
             borderRadius: '15px', 
             boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)', 
@@ -123,12 +139,13 @@ const List = () => {
                 {event.eventArtist}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'Roboto, sans-serif', color: '#666' }}>
-                Musician
+                Artist
               </Typography>
             </CardContent>
           </Card>
         </Grid>
 
+        {/* Details Box */}
         <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ 
               borderRadius: '15px', 
@@ -161,6 +178,7 @@ const List = () => {
           </Card>
         </Grid>
 
+        {/* Share Box */}
         <Grid item xs={12} sm={6} md={4}>
         <Card sx={{ 
             borderRadius: '15px', 
@@ -181,10 +199,35 @@ const List = () => {
                   <InstagramIcon sx={{fontSize: 35, cursor:"pointer"}} />
                 </a>
               </Box>
+              
+              <Box display="flex" justifyContent="center" alignItems="center" my={2} gap={1}>
+                <StyledButton variant="contained" onClick={handleLikeClick}>
+                  <FavoriteIcon sx={{ mr: 1 }} />
+                </StyledButton>
+                <Typography variant="body1" color="text.secondary">
+                  {likeCount}
+                </Typography>
+                <br/>
+                <StyledButton variant="contained" sx={{ my: 2 }}>
+                <ChatBubbleIcon onClick={toggleCommentVisibility} sx={{ cursor: 'pointer' }} />
+                  {commentVisible && (
+                    <Box mt={1}>
+                      <TextField
+                        label="Add a comment"
+                        variant="outlined"
+                        fullWidth
+                        multiline
+                        rows={4}
+                      />
+                    </Box>
+                  )}
+              </StyledButton>
+            </Box>
             </CardContent>
           </Card>
         </Grid>
 
+{/* Location */}
         <Grid item xs={12}>
           <Card sx={{ backgroundColor: '#f5f5f5', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s, box-shadow 0.3s', textAlign: 'center', '&:hover': { transform: 'scale(1.02)', boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)' } }}>
             <CardContent>

@@ -1,69 +1,31 @@
+/* app.css */
+
+/* Root container */
 #root {
-  /* max-width: 1280px; */
   margin: 0 auto;
-  /* padding: 2rem; */
   text-align: center;
-  /* padding-top: 120px; */
 }
 
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-} */
-
-body {
-  margin: 0;
-  padding: 0;
-  cursor: none;
-}
-
+/* App layout */
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Full viewport height */
 }
 
-/* @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}*
-
-
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-} */
-
-.card {
-  padding: 2em;
+/* Navbar */
+.Navbar {
+  padding: 8px;
+  background-color: white;
 }
- /* Navbar */
 
 .Navbar button:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transform: scale(1.1);
 }
 
-.Navbar{
-  padding: 8px;
-  background-color: white;
-}
-
-.MuiToolbar-root, .css-1g467ij-MuiToolbar-root{
+.MuiToolbar-root,
+.css-1g467ij-MuiToolbar-root {
   background-color: rgb(0, 0, 0);
 }
 
@@ -81,42 +43,13 @@ body {
   color: #ff4081; /* Stylish hover color */
 }
 
-/* Navbar button styles */
-
-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
+/* Card Styles */
+.card {
+  padding: 2em;
 }
 
-
-
-/*List.jsx (EventDetails) */
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  }
-
-.read-the-docs {
-  color: #888;
-}
-
-
-
-/* .miniCard{
-  background-color: lightblue;
-  text-align: left;
-  display: flex;
-  width: 100vb;
-  flex-direction: row;
-  border-radius: 10px;
-  gap: 200px;
-  margin: 20px;
-  padding: 20px;
-} */
-
-
-.miniCardCollection{
+/* Mini Card Collection */
+.miniCardCollection {
   min-width: 320px;
   min-height: 100vh;
   display: flex;
@@ -125,14 +58,14 @@ button:hover {
   margin-top: 60px;
 }
 
-.miniCardCollection h2{
+.miniCardCollection h2 {
   color: white;
   font-weight: 600;
   font-size: 40px;
   text-align: left;
 }
 
-
+/* Mini Card */
 .miniCard {
   background-color: rgb(255, 255, 255);
   text-align: left;
@@ -144,7 +77,7 @@ button:hover {
   width: 100%;
   max-height: 200px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  min-width: 500px;
+  min-width: 700px;
   max-width: 1000px;
 }
 
@@ -153,7 +86,7 @@ button:hover {
   align-items: center;
   max-width: 300px;
 }
- 
+
 .cardImage img {
   width: 100%;
   height: auto;
@@ -217,7 +150,19 @@ button:hover {
   color: #ff4081; /* Stylish hover color */
 }
 
+/* Profile Picture */
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
 
-.eventDetails{
+/* Read the Docs */
+.read-the-docs {
+  color: #888;
+}
+
+/* Event Details */
+.eventDetails {
   margin: 100px;
 }

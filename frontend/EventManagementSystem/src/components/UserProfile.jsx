@@ -20,7 +20,7 @@ const UserProfilePage = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/userprofiles')
+    fetch('http://localhost:4000/users')
       .then(response => response.json())
       .then(data => {
         setUser(data);
@@ -35,7 +35,7 @@ const UserProfilePage = () => {
         console.error('Error fetching user data:', error);
       });
 
-    fetch('http://localhost:4000/userevents')
+    fetch('http://localhost:4000/events')
       .then(response => response.json())
       .then(data => {
         setEvents(data);
@@ -65,7 +65,7 @@ const UserProfilePage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('http://localhost:4000/userprofiles', {
+    fetch('http://localhost:4000/users', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ const UserProfilePage = () => {
         name: formData.name,
         email: formData.email,
         city: formData.city,
-        profilePicture: formData.profilePicture ? formData.profilePicture : user.profilePicture
+        profilePicture: "formData.profilePicture ? formData.profilePicture : user.profilePicture"
       })
     })
       .then(response => response.json())
@@ -91,7 +91,7 @@ const UserProfilePage = () => {
       <div className="profile-content">
         <div className="profile-card">
           <div className="profile-header">
-            <img src={user.profilePicture} alt="Profile" className="profile-picture" />
+            <img src={"https://doonofficersacademy.com/wp-content/uploads/2022/10/sample-profile.png"} alt="Profile" className="profile-picture" />
             <h2 className="profile-name">{user.name}</h2>
             <p className="profile-email">{user.email}</p>
             <p className="profile-city">{user.city}</p>
