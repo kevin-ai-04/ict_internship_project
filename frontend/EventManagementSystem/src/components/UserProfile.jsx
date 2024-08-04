@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './UserProfilePage.css';
+import './UserProfile.css';
 import MiniCard from './MiniCard';
 
 const UserProfilePage = () => {

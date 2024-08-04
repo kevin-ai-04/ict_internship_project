@@ -14,6 +14,7 @@ import Cursor from './components/Cursor'
 import AdminUsers from './components/AdminUsers'
 import AddEvent from './components/AddEvent'
 import EditEvent from './components/EditEvent'
+import Home from './components/Home'
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
     <Cursor/>
     <Navbar/>
     <Routes>
-      <Route path='/' element={<EventList/>}></Route>
+      <Route path='/' element={<Home/>}></Route>
       <Route path='/EventList' element={<EventList/>}></Route>
       <Route path='/user' element={<UserProfile/>}></Route>
       <Route path="/admin" element={<AdminDashboard />} />
