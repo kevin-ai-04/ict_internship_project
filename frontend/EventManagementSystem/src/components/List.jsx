@@ -238,7 +238,71 @@ const List = () => {
             </CardContent>
           </Card>
         </Grid>
-
+        <Grid item xs={12}>
+          <Card
+            sx={{
+              borderRadius: '15px',
+              boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.3s, box-shadow 0.3s',
+              '&:hover': {
+                transform: 'scale(1.03)',
+                boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)',
+              },
+            }}
+          >
+            <CardContent>
+              <Box
+                sx={{
+                  my: 4,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2,
+                  p: 2,
+                  border: '2px solid grey',
+                  textAlign: 'left',
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{ fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333' }}
+                >
+                  <b>NOTE</b>
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{ fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333' }}
+                >
+                  Family Zone Mandates
+                </Typography>
+                <ul>
+                  <li>Child must compulsorily be accompanied by an adult.</li>
+                  <li>Child and Adult ticket required to be purchased separately.</li>
+                  <li>Children between 3 to 14 years need compulsory supervision of Adult.</li>
+                  <li>Children will be only allowed in Family Zone.</li>
+                </ul>
+              </Box>
+              <Typography
+                gutterBottom
+                variant="h6"
+                component="div"
+                sx={{
+                  fontFamily: 'Roboto, sans-serif',
+                  fontWeight: 'bold',
+                  color: '#333',
+                }}
+              >
+                Venue Layout
+              </Typography>
+              <Box display="flex" justifyContent="center">
+                <img
+                  src="https://edsheerankl2024.my/wp-content/uploads/es-seatmap_only-v2-min.png"
+                  alt="Venue Layout"
+                  height="600"
+                />
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
         <Grid item xs={12}>
           <Card sx={{ backgroundColor: '#f5f5f5', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s, box-shadow 0.3s', textAlign: 'center', '&:hover': { transform: 'scale(1.02)', boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)' } }}>
             <CardContent>
