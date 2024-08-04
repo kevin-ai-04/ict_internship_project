@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Signup.css';
 
-
 function SignUpPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,8 +19,10 @@ function SignUpPage() {
   return (
     <div className="signup-container">
       <div className="signup-form">
-        <h1>Events</h1>
-        <h2>Create an Account</h2>
+        <div className="signup-header">
+          <h1>Events</h1>
+          <h2>Create an Account</h2>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <input

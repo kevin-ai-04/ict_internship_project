@@ -1,20 +1,21 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    cursor: none;
-  }
-  
-  .cursor {
-    pointer-events: none;
-    position: fixed;
-    padding: 0.3rem;
-    background-color: #ffffff;
-    border-radius: 50%;
-    mix-blend-mode: difference;
-    transition: transform 0.3s ease;
-  }
-  
-  .hover-this:hover ~ .cursor {
-    transform: translate(-50%, -50%) scale(8);
-  }
-  
+  margin: 0;
+  padding: 0;
+  cursor: none;
+}
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  padding: 0.6rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  opacity: 50%;
+  transition: transform 0.3s ease;
+  z-index: 9999;
+}
+
+button, a, .nav-button, .edit-button, .delete-button, .cardArrow, .navbar-button {
+  cursor: none;
+}

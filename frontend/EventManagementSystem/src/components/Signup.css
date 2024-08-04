@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
-
 .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(135deg, rgba(8, 8, 8, 0.7) 0%, rgba(249, 247, 247, 0.7) 100%), url('https://source.unsplash.com/1600x900/?cinema,red-carpet') no-repeat center center fixed;
-  background-size: cover;
 }
 
 .signup-form {
@@ -18,25 +14,15 @@
   text-align: center;
   max-width: 400px;
   width: 100%;
-  color: #f0ecec;
   animation: fadeIn 1.5s ease-in-out;
 }
 
-.logo {
-  width: 100px;
-  margin-bottom: 20px;
-}
-
-h1 {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #140402;
+.signup-header h1 {
   margin-bottom: 10px;
   font-size: 2.5rem;
 }
 
-h2 {
-  font-family: 'Roboto', sans-serif;
-  color: #100f0f;
+.signup-header h2 {
   margin-bottom: 20px;
   font-weight: 300;
 }
@@ -62,25 +48,23 @@ input:focus {
   border-color: #6845c1;
 }
 
-/* button {
+.signup-button {
   width: 100%;
   padding: 12px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  background-color: #643ce7;
+  color: white;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
-  transition: background-color 0.3s ease;
-} */
-
-.signup-button {
-  background-color: #2426a3c4;
-  color: rgb(25, 1, 1);
-  font-family: 'Playfair Display', serif;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .signup-button:hover {
-  background-color: #e5e4e8;
+  background-color: #4a2ea6;
+  transform: translateY(-3px);
 }
 
 .login-prompt {

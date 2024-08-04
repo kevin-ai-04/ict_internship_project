@@ -22,21 +22,21 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h5" component="div" className="navbar-title">
+          <Typography variant="h5" component={Link} to="/" className="navbar-title">
             Events+
           </Typography>
           <Box>
-            <StyledLink to="/">
-              <NavButton>Home</NavButton>
+            <StyledLink to="/" className="navbar-button">
+              <NavButton className="navbar-button">Home</NavButton>
             </StyledLink>
-            <StyledLink to="/user">
-              <NavButton>User</NavButton>
+            <StyledLink to="/user" className="navbar-button">
+              <NavButton className="navbar-button">User</NavButton>
             </StyledLink>
-            <StyledLink to="/admin">
-              <NavButton>Admin</NavButton>
+            <StyledLink to="/admin" className="navbar-button">
+              <NavButton className="navbar-button">Admin</NavButton>
             </StyledLink>
-            <StyledLink to="/login">
-              <NavButton>Log In</NavButton>
+            <StyledLink to="/login" className="navbar-button">
+              <NavButton className="navbar-button">Log In</NavButton>
             </StyledLink>
           </Box>
         </Toolbar>

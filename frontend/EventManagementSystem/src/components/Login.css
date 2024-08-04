@@ -4,37 +4,25 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(135deg, rgba(18, 18, 18, 0.99) 0%, rgba(238, 236, 236, 0.985) 100%), url('https://source.unsplash.com/1600x900/?cinema,movie') no-repeat center center fixed;
-  background-size: cover;
 }
 
 .login-form {
-  background: rgba(241, 240, 240, 0.982);
+  background: rgba(255, 255, 255, 0.95);
   padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 0 25px rgba(16, 0, 0, 0.5);
+  box-shadow: 0 0 25px rgba(233, 226, 226, 0.5);
   text-align: center;
   max-width: 400px;
   width: 100%;
-  color: #fff;
   animation: fadeIn 0.5s ease-in-out;
 }
 
-.logo {
-  width: 100px;
-  margin-bottom: 20px;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  color: #310904;
+.login-header h1 {
   margin-bottom: 10px;
   font-size: 2.5rem;
 }
 
-h2 {
-  font-family: 'Roboto', sans-serif;
-  color: #fff;
+.login-header h2 {
   margin-bottom: 20px;
   font-weight: 300;
 }
@@ -46,18 +34,18 @@ h2 {
 input {
   width: 100%;
   padding: 12px;
-  border: 1px solid #e74c3c;
+  border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
-  background: #2c2c2c;
-  color: #fff;
+  background: #f7f7f7;
   box-sizing: border-box;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 input:focus {
   outline: none;
-  border-color: #c0392b;
+  border-color: #643ce7;
+  background: #fff;
 }
 
 .login-button {
@@ -69,33 +57,34 @@ input:focus {
   cursor: pointer;
   background-color: #643ce7;
   color: white;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .login-button:hover {
-  background-color: #535252;
+  background-color: #4a2ea6;
+  transform: translateY(-3px);
 }
 
 .forgot-password {
   margin-top: 15px;
-  color: #090909;
+  color: #555;
   text-decoration: underline;
   cursor: pointer;
 }
 
 .forgot-password:hover {
-  color: #622bc0;
+  color: #643ce7;
 }
 
 .signup-prompt {
   margin-top: 20px;
-  color: #0b0909;
+  color: #555;
 }
 
 .signup-prompt a {
-  color: #250de2;
+  color: #643ce7;
   text-decoration: none;
   font-weight: 600;
 }

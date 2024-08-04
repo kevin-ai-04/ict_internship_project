@@ -166,6 +166,17 @@ const List = () => {
           <Card sx={{ backgroundColor: '#f5f5f5', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s, box-shadow 0.3s', textAlign: 'center', '&:hover': { transform: 'scale(1.02)', boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)' } }}>
             <CardContent>
               <Typography gutterBottom variant="h6" component="div" sx={{ fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333', marginBottom: '16px' }}>
+                Location
+              </Typography>
+              <img width='700px' src="https://media.wired.com/photos/5a6a61938c669c70314b300d/master/pass/Google-Map-US_10.jpg"></img>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Card sx={{ backgroundColor: '#f5f5f5', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s, box-shadow 0.3s', textAlign: 'center', '&:hover': { transform: 'scale(1.02)', boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)' } }}>
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="div" sx={{ fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333', marginBottom: '16px' }}>
                 Click on <b>Interested</b> to stay updated about this event.
               </Typography>
               <Box display="flex" justifyContent="center" alignItems="center" my={2}>
@@ -177,25 +188,6 @@ const List = () => {
               <Typography variant="body1" color="text.secondary" sx={{ fontFamily: 'Roboto, sans-serif', color: '#666', marginTop: '16px' }}>
                 Join the community of people who have shown interest recently.
               </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Card sx={{ borderRadius: '15px', boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s, box-shadow 0.3s', '&:hover': { transform: 'scale(1.03)', boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)' } }}>
-            <CardContent>
-              <Box
-                sx={{
-                  my: 4,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 2,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-                <StyledButton variant="contained">Back to Events</StyledButton>
-              </Box>
             </CardContent>
           </Card>
         </Grid>

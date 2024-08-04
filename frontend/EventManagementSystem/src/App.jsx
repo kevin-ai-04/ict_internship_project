@@ -11,12 +11,13 @@ import LoginPage from './components/LoginPage'
 import SignUpPage from './components/SignUpPage'
 import List from './components/List'
 import Cursor from './components/Cursor'
+import Footer from './components/Footer'
 
 function App() {
   return (
     <>
+    <Cursor/>
     <Navbar/>
-     <Cursor /> {/*Add the Cursor component */}
     <Routes>
       <Route path='/' element={<EventList/>}></Route>
       <Route path='/user' element={<UserProfile/>}></Route>
@@ -26,6 +27,7 @@ function App() {
       <Route path="/list" element={<List/>} />
       <Route path="/list/:eventID" element={<List />} />
     </Routes>
+    <Footer /> 
     </>
   )
 }
