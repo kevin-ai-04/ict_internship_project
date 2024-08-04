@@ -22,6 +22,7 @@ function App() {
     <Navbar/>
     <Routes>
       <Route path='/' element={<EventList/>}></Route>
+      <Route path='/EventList' element={<EventList/>}></Route>
       <Route path='/user' element={<UserProfile/>}></Route>
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/admin/user" element={<AdminUsers />} />

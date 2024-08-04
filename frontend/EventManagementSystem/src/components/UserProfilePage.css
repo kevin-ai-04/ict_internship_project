@@ -1,33 +1,30 @@
-/* UserProfilePage.css */
-
 /* General Styling */
-.profile-container {
+.page-container {
   display: flex;
   justify-content: center;
   margin-top: 100px;
 }
 
-.profile-content {
+.profile-events-container {
   display: flex;
-  flex-direction: row;
-  gap: 30px;
+  align-items: flex-start;
+  /* gap: 30px; */
   width: 100%;
-  max-width: 1400px; /* Increased width */
+  /* max-width: 1800px; */
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-
 }
 
 /* Profile Card */
 .profile-card {
   flex: 1;
-  background: #e6e6e6; /* Dark background for contrast */
+  background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   padding: 40px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  color: #ffffff; /* White text */
+  color: #333333;
 }
 
 .profile-card:hover {
@@ -38,16 +35,16 @@
 /* Profile Picture */
 .profile-picture {
   border-radius: 50%;
-  width: 200px; /* Increased size */
-  height: 200px; /* Increased size */
+  width: 150px;
+  height: 150px;
   object-fit: cover;
-  margin-bottom: 25px;
-  border: 6px solid #4a90e2; /* Bright blue border */
+  /* margin-bottom: 25px; */
+  border: 6px solid #4a90e2;
   transition: border 0.3s, transform 0.3s;
 }
 
 .profile-picture:hover {
-  border: 6px solid #357abd; /* Darker blue on hover */
+  border: 6px solid #357abd;
   transform: scale(1.05);
 }
 
@@ -57,16 +54,16 @@
 }
 
 .profile-name {
-  font-size: 36px; /* Larger font size */
+  font-size: 36px;
   font-weight: 800;
-  color: #333333; /* Dark text for better readability */
+  color: #333333;
   margin-bottom: 15px;
 }
 
 .profile-email,
 .profile-city {
-  font-size: 22px; /* Larger font size */
-  color: #ffffff; /* Dark grey text for contrast */
+  font-size: 22px;
+  color: #333333;
 }
 
 /* Form */
@@ -75,10 +72,10 @@
 }
 
 .form-header {
-  font-size: 32px; /* Larger font size */
+  font-size: 32px;
   margin-bottom: 30px;
   text-align: center;
-  color: #4a90e2; /* Bright blue header */
+  color: #4a90e2;
 }
 
 .form-group {
@@ -92,28 +89,28 @@
   font-weight: 600;
   margin-right: 20px;
   color: #ffffff;
-  width: 150px; /* Fixed width for labels */
+  width: 150px;
 }
 
 .form-control {
   width: 100%;
   padding: 16px;
-  border: 2px solid #4a90e2; /* Bright blue border */
+  border: 2px solid #4a90e2;
   border-radius: 10px;
   font-size: 18px;
-  background-color: #ffffff; /* White background for inputs */
-  color: #333333; /* Dark text */
+  background-color: #ffffff;
+  color: #333333;
   transition: border 0.3s;
 }
 
 .form-control:focus {
-  border: 2px solid #357abd; /* Darker blue on focus */
+  border: 2px solid #357abd;
   outline: none;
 }
 
 /* Buttons */
 .btn-primary {
-  background: linear-gradient(90deg, #4a90e2, #357abd); /* Bright gradient */
+  background: linear-gradient(90deg, #4a90e2, #357abd);
   color: #ffffff;
   padding: 16px 22px;
   border: none;
@@ -133,26 +130,25 @@
 
 /* Events Container */
 .events-container {
-  flex: 1;
-  background: #181a26; /* Dark background for contrast */
+  display: flex;
+  flex-direction: column;
+  background: #181a26;
   border-radius: 20px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  /* padding: 40px; */
+  padding-left: 40px;
   transition: transform 0.3s, box-shadow 0.3s;
-  color: #ffffff; /* White text */
-  min-width:70%;
-}
-
-.events-container:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  flex: 2;
+  transform: scale(0.85);
+  transform-origin: top left; /* Adjust the origin to the top-left corner */
+  
 }
 
 .events-header {
-  font-size: 32px; /* Larger font size */
+  font-size: 32px;
   font-weight: 800;
   margin-bottom: 30px;
-  color: #ffffff; /* White text */
+  color: #ffffff;
 }
 
 .events-cards {

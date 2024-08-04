@@ -74,7 +74,7 @@ const UserProfilePage = () => {
         name: formData.name,
         email: formData.email,
         city: formData.city,
-        profilePicture: "formData.profilePicture ? formData.profilePicture : user.profilePicture"
+        profilePicture: formData.profilePicture ? formData.profilePicture : user.profilePicture
       })
     })
       .then(response => response.json())
@@ -87,11 +87,11 @@ const UserProfilePage = () => {
   };
 
   return (
-    <div className="profile-container">
-      <div className="profile-content">
+    <div className="page-container">
+      <div className="profile-events-container">
         <div className="profile-card">
           <div className="profile-header">
-            <img src={"https://doonofficersacademy.com/wp-content/uploads/2022/10/sample-profile.png"} alt="Profile" className="profile-picture" />
+            <img src={user.profilePicture || "https://doonofficersacademy.com/wp-content/uploads/2022/10/sample-profile.png"} alt="Profile" className="profile-picture" />
             <h2 className="profile-name">{user.name}</h2>
             <p className="profile-email">{user.email}</p>
             <p className="profile-city">{user.city}</p>
@@ -145,7 +145,7 @@ const UserProfilePage = () => {
           </form>
         </div>
         <div className="events-container">
-          <h3 className="events-header">Total Events Booked: {events.length}</h3>
+          <h2 className="events-header">Total Events Booked: {events.length}</h2>
           <div className="events-cards">
             {events.map((event, index) => (
               <MiniCard key={index} event={event} />
