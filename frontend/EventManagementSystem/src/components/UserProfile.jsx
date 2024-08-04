@@ -1,24 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './UserProfilePage.css';
+import MiniCard from './MiniCard';
 
 const UserProfilePage = () => {
-  // Example user data using useState hook
   const [user, setUser] = useState({
-    name: 'Rohit',
-    email: 'rohitbnair1@gmail.com',
-    city: 'New York',
-    profilePicture: 'https://randomuser.me/api/portraits/men/1.jpg'
+    name: '',
+    email: '',
+    city: '',
+    profilePicture: ''
   });
 
-  // State for form inputs
   const [formData, setFormData] = useState({
-    name: user.name,
-    email: user.email,
-    city: user.city,
+    name: '',
+    email: '',
+    city: '',
     profilePicture: null
   });
 
-  // Handle form input changes
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/userprofiles')
+      .then(response => response.json())
+      .then(data => {
+        setUser(data);
+        setFormData({
+          name: data.name,
+          email: data.email,
+          city: data.city,
+          profilePicture: data.profilePicture
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching user data:', error);
+      });
+
+    fetch('http://localhost:4000/userevents')
+      .then(response => response.json())
+      .then(data => {
+        setEvents(data);
+      })
+      .catch(error => {
+        console.error('Error fetching user events:', error);
+      });
+  }, []);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -27,7 +53,6 @@ const UserProfilePage = () => {
     });
   };
 
-  // Handle file input change
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -38,77 +63,98 @@ const UserProfilePage = () => {
     }
   };
 
-  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUser({
-      ...user,
-      name: formData.name,
-      email: formData.email,
-      city: formData.city,
-      profilePicture: formData.profilePicture ? formData.profilePicture : user.profilePicture
-    });
+    fetch('http://localhost:4000/userprofiles', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        city: formData.city,
+        profilePicture: formData.profilePicture ? formData.profilePicture : user.profilePicture
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        setUser(data);
+      })
+      .catch(error => {
+        console.error('Error updating user data:', error);
+      });
   };
 
   return (
     <div className="profile-container">
-      <div className="profile-card">
-        <div className="profile-header">
-          <img src={user.profilePicture} alt="Profile" className="profile-picture" />
-          <h2 className="profile-name">{user.name}</h2>
-          <p className="profile-email">{user.email}</p>
-          <p className="profile-city">{user.city}</p>
+      <div className="profile-content">
+        <div className="profile-card">
+          <div className="profile-header">
+            <img src={user.profilePicture} alt="Profile" className="profile-picture" />
+            <h2 className="profile-name">{user.name}</h2>
+            <p className="profile-email">{user.email}</p>
+            <p className="profile-city">{user.city}</p>
+          </div>
+          <form onSubmit={handleSubmit} className="profile-form">
+            <h3 className="form-header">Update Profile</h3>
+            <div className="form-group">
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                className="form-control"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="form-control"
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="city">City:</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                className="form-control"
+                value={formData.city}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="profilePicture">Profile Picture:</label>
+              <input
+                type="file"
+                id="profilePicture"
+                name="profilePicture"
+                className="form-control"
+                onChange={handleFileChange}
+              />
+            </div>
+            <button type="submit" className="btn-primary">Save Changes</button>
+          </form>
         </div>
-        <form onSubmit={handleSubmit} className="profile-form">
-          <h3 className="form-header">Update Profile</h3>
-          <div className="form-group">
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="form-control"
-              value={formData.name}
-              onChange={handleInputChange}
-            />
+        <div className="events-container">
+          <h3 className="events-header">Total Events Booked: {events.length}</h3>
+          <div className="events-cards">
+            {events.map((event, index) => (
+              <MiniCard key={index} event={event} />
+            ))}
           </div>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="form-control"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="city">City:</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              className="form-control"
-              value={formData.city}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="profilePicture">Profile Picture:</label>
-            <input
-              type="file"
-              id="profilePicture"
-              name="profilePicture"
-              className="form-control"
-              onChange={handleFileChange}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">Save Changes</button>
-        </form>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default UserProfilePage;

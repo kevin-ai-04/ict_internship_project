@@ -13,7 +13,7 @@ const Cursor = () => {
 
     const scaleCursor = (e) => {
       if (
-        e.target.matches('button, a, .nav-button, .edit-button, .delete-button, .cardArrow')
+        e.target.matches('button, a, .nav-button, .edit-button, .delete-button, .cardArrow, .cardImage , .cardHeader')
       ) {
         cursor.style.transform = 'translate(-50%, -50%) scale(4)';
       } else {

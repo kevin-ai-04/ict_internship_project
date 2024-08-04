@@ -10,12 +10,12 @@ html, body {
   padding: 0.6rem;
   background-color: #ffffff;
   border-radius: 50%;
-  mix-blend-mode: screen;
-  opacity: 50%;
+  mix-blend-mode: difference;
+  opacity: 80%;
   transition: transform 0.3s ease;
   z-index: 9999;
 }
 
-button, a, .nav-button, .edit-button, .delete-button, .cardArrow, .navbar-button {
+button, a, .nav-button, .edit-button, .delete-button, .cardArrow, .cardImage , .cardHeader, .navbar-button {
   cursor: none;
 }

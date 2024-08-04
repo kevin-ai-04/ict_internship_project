@@ -13,8 +13,8 @@ const AdminDashboard = () => {
             .catch(error => console.error('Error fetching events:', error));
     }, []);
 
-    const handleManageUserClick = () => {
-        navigate('/manageuser');
+    const handleUsersClick = () => {
+        navigate('/admin/user');
     };
 
     const handleManageEventsClick = () => {
@@ -25,20 +25,12 @@ const AdminDashboard = () => {
         navigate('/addevent');
     };
 
-    const handleViewEditProfilesClick = () => {
-        navigate('/vieweditprofiles');
-    };
-
-    const handleLogoutClick = () => {
-        navigate('/login');
-    };
 
     const handleEditClick = (eventID) => {
         navigate(`/editevent/${eventID}`);
     };
 
     const handleDeleteClick = (eventID) => {
-        // Add logic to delete the event
         console.log(`Delete event with ID: ${eventID}`);
     };
 
@@ -47,14 +39,13 @@ const AdminDashboard = () => {
             <div className="admin-home-content">
                 <h1>Admin Home Page</h1>
                 <div className="button-group">
-                    <button className="nav-button" onClick={handleManageUserClick}>Manage User</button>
+                    <button className="nav-button" onClick={handleUsersClick}>Show Users</button>
                     <button className="nav-button" onClick={handleManageEventsClick}>Manage Events</button>
                     <button className="nav-button" onClick={handleAddEventClick}>Add New Event</button>
-                    <button className="nav-button" onClick={handleViewEditProfilesClick}>View/Edit User Profiles</button>
                 </div>
             </div>
             <div className="event-list">
-                <h2>Created Events</h2>
+                <h2>Upcoming Events</h2>
                 <div className="event-cards">
                     {events.map(event => (
                         <div key={event.eventID} className={`event-card`}>

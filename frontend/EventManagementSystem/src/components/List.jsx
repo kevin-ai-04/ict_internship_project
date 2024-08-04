@@ -30,9 +30,7 @@ import { useParams } from 'react-router-dom';
 
 const ImageCard = styled(Card)(({ theme }) => ({
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-  backgroundColor: 'transparent !important', // Ensure background is transparent
-  boxShadow: 'none !important', // Remove default box shadow
-  border: 'none !important', // Remove any border if present
+  border: 'none',
   '&:hover': {
     transform: 'scale(1.05)',
     boxShadow: `0 8px 16px rgba(0, 0, 0, 0.2)`,
@@ -92,7 +90,7 @@ const List = () => {
     <Container className='eventDetails'>
       <Grid container spacing={4} justifyContent="center">
         <Grid item xs={12}>
-          <Card sx={{backgroundColor:'black'}}>
+          <Card sx={{backgroundColor:'#181a26'}}>
             <CardMedia>
               <Box sx={{ height: 300 }}>
                 <ImageViewer images={[event.image2, event.image3, event.image4, event.image5]} />
@@ -102,11 +100,20 @@ const List = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ borderRadius: '15px', boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s, box-shadow 0.3s', '&:hover': { transform: 'scale(1.03)', boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)' }, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Card sx={{ 
+            borderRadius: '15px', 
+            boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)', 
+            transition: 'transform 0.3s, box-shadow 0.3s', 
+            '&:hover': { transform: 'scale(1.03)', boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)' }, 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            height: '100%'
+          }}>
             <CardMedia sx={{ margin: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', height: 200 }}>
               <Box
                 component="img"
-                src={event.image5} // Placeholder
+                src={event.image5}
                 alt="ArtistImg"
                 sx={{ width: 200, height: 200, borderRadius: '50%', objectFit: 'cover' }}
               />
@@ -123,7 +130,13 @@ const List = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ borderRadius: '15px', boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s, box-shadow 0.3s', '&:hover': { transform: 'scale(1.03)', boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)' } }}>
+            <Card sx={{ 
+              borderRadius: '15px', 
+              boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)', 
+              transition: 'transform 0.3s, box-shadow 0.3s', 
+              '&:hover': { transform: 'scale(1.03)', boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)' }, 
+              height: '100%'
+            }}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333' }}>
                 <b>{event.eventName}</b>
@@ -149,14 +162,24 @@ const List = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ borderRadius: '15px', boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s, box-shadow 0.3s', '&:hover': { transform: 'scale(1.03)', boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)' } }}>
+        <Card sx={{ 
+            borderRadius: '15px', 
+            boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)', 
+            transition: 'transform 0.3s, box-shadow 0.3s', 
+            '&:hover': { transform: 'scale(1.03)', boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)' }, 
+            height: '100%'
+          }}>
             <CardContent>
               <Typography gutterBottom variant="h6" component="div" sx={{ fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333' }}>
                 Share this event
               </Typography>
               <Box display="flex" justifyContent="center" alignItems="center" gap={2}>
-                <XIcon />
-                <InstagramIcon />
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+                  <XIcon sx={{fontSize: 35, cursor:"pointer"}} />
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <InstagramIcon sx={{fontSize: 35, cursor:"pointer"}} />
+                </a>
               </Box>
             </CardContent>
           </Card>

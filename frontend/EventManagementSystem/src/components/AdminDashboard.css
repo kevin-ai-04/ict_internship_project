@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
+/* General Container */
 .admin-home-container {
     min-height: 100vh;
     display: flex;
@@ -8,20 +7,27 @@
     margin-top: 64px;
 }
 
+/* Logo */
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
 }
 
-.logout-button {
-    background-color: #e74c3c;
+/* Buttons */
+.logout-button, .edit-button, .delete-button {
     border: none;
     color: white;
-    padding: 0.6rem 1.2rem;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s;
-    font-size: 1rem;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.logout-button {
+    background-color: #e74c3c;
 }
 
 .logout-button:hover {
@@ -29,6 +35,25 @@
     transform: scale(1.05);
 }
 
+.edit-button {
+    background-color: #3498db;
+}
+
+.edit-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.delete-button {
+    background-color: #e74c3c;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Admin Home Content */
 .admin-home-content {
     padding: 3rem 2rem;
     text-align: center;
@@ -42,6 +67,7 @@
     color: #e3e2ff;
 }
 
+/* Button Group */
 .button-group {
     display: flex;
     justify-content: center;
@@ -68,98 +94,76 @@
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-.event-list {
+/* Lists */
+.event-list, .user-list {
     padding: 2rem;
     text-align: center;
     background-color: #ffffff;
     border-top: 1px solid #bdc3c7;
 }
 
-.event-list h2 {
+.event-list h2, .user-list h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
     color: #2c3e50;
 }
 
-.event-cards {
+/* Event and User Cards */
+.event-cards, .user-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
 }
 
+.event-card, .user-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-.event-card:hover {
+.event-card:hover, .user-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .event-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    width: 280px;
-    text-align: left;  /* Changed from center to left */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 480px;
 }
 
-.event-card h3 {
+.user-card {
+    width: 300px; /* Adjust width to fit user card content */
+}
+
+.event-card h3, .user-card h3 {
     margin: 0 0 1rem 0;
     color: #333;
     font-size: 1.5rem;
-    text-align: left;  /* Ensure header text is left-aligned */
+    text-align: left; 
 }
 
-.event-card p {
+.event-card p, .user-card p {
     margin: 0 0 1rem 0;
     color: #666;
     font-size: 1rem;
-    text-align: left;  /* Ensure paragraph text is left-aligned */
+    text-align: left;
 }
 
+/* Card Images */
 .card-images {
     display: flex;
     gap: 0.5rem;
-    justify-content: flex-start;  /* Align images to the left */
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 1rem;
 }
 
 .card-images img {
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
     border-radius: 5px;
-}
-
-.edit-button,
-.delete-button {
-    border: none;
-    color: white;
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s;
-    margin-top: 1rem;
-    margin-right: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.edit-button {
-    background-color: #3498db;
-}
-
-.edit-button:hover {
-    background-color: #2980b9;
-    transform: scale(1.05);
-}
-
-.delete-button {
-    background-color: #e74c3c;
-}
-
-.delete-button:hover {
-    background-color: #c0392b;
-    transform: scale(1.05);
 }

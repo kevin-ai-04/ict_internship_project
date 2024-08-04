@@ -11,7 +11,7 @@ import LoginPage from './components/LoginPage'
 import SignUpPage from './components/SignUpPage'
 import List from './components/List'
 import Cursor from './components/Cursor'
-import Footer from './components/Footer'
+import AdminUsers from './components/AdminUsers'
 
 function App() {
   return (
@@ -21,13 +21,13 @@ function App() {
     <Routes>
       <Route path='/' element={<EventList/>}></Route>
       <Route path='/user' element={<UserProfile/>}></Route>
-      <Route path='/admin' element={<AdminDashboard/>}></Route>
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/user" element={<AdminUsers />} />
       <Route path="/login" element={<LoginPage/>} />
       <Route path="/signup" element={<SignUpPage/>} />
       <Route path="/list" element={<List/>} />
       <Route path="/list/:eventID" element={<List />} />
     </Routes>
-    <Footer /> 
     </>
   )
 }
