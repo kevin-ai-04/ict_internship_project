@@ -5,6 +5,7 @@ import './AddEvent.css';
 const AddEvent = () => {
     const navigate = useNavigate();
     const [event, setEvent] = useState({
+        eventID: '', // Add eventID field
         eventName: '',
         eventArtist: '',
         eventShortDescription: '',
@@ -41,7 +42,7 @@ const AddEvent = () => {
         .then(response => response.text())
         .then(message => {
             console.log(message);
-            navigate('/manageevents'); // Redirect to manage events or other page
+            navigate('/admin'); // Redirect to manage events or another page
         })
         .catch(error => console.error('Error adding event:', error));
     };
@@ -51,6 +52,10 @@ const AddEvent = () => {
             <div className="add-event-content">
                 <h1>Add New Event</h1>
                 <form onSubmit={handleSubmit} className="event-form">
+                    <div className="form-group">
+                        <label htmlFor="eventID">Event ID</label> {/* Add input for eventID */}
+                        <input id="eventID" type="number" name="eventID" value={event.eventID} onChange={handleChange} required />
+                    </div>
                     <div className="form-group">
                         <label htmlFor="eventName">Event Name</label>
                         <input id="eventName" type="text" name="eventName" value={event.eventName} onChange={handleChange} required />

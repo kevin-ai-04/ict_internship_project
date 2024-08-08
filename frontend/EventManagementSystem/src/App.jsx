@@ -15,6 +15,7 @@ import AdminUsers from './components/AdminUsers'
 import AddEvent from './components/AddEvent'
 import EditEvent from './components/EditEvent'
 import Home from './components/Home'
+import EditUser from './components/EditUser'
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
       <Route path="/signup" element={<SignUpPage/>} />
       <Route path="/list" element={<List/>} />
       <Route path="/list/:eventID" element={<List />} />
+      <Route path="/events/:eventID" element={<AdminDashboard />} />
+      <Route path="/edit-event/:eventID" element={<EditEvent />} />
+      <Route path="/edituser/:id" element={<EditUser />} />
     </Routes>
     </>
   )

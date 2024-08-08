@@ -22,8 +22,21 @@ const AdminUsers = () => {
     };
 
     const handleDeleteClick = (userID) => {
-        // Add logic to delete the user
-        console.log(`Delete user with ID: ${userID}`);
+        fetch(`http://localhost:4000/userremoval/${userID}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Failed to delete user');
+            }
+        })
+        .then(message => {
+            console.log(message);
+            setUsers(users.filter(user => user._id !== userID));
+        })
+        .catch(error => console.error('Error deleting user:', error));
     };
 
     return (

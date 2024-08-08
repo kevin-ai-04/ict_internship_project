@@ -7,6 +7,7 @@ const EditEvent = () => {
     const navigate = useNavigate();
     const { eventID } = useParams();
     const [event, setEvent] = useState({
+        eventID: '', // Include eventID in state
         eventName: '',
         eventArtist: '',
         eventShortDescription: '',
@@ -50,7 +51,7 @@ const EditEvent = () => {
         .then(response => response.text())
         .then(message => {
             console.log(message);
-            navigate('/manageevents'); // Redirect to manage events or other page
+            navigate('/admin'); // Redirect to manage events or other page
         })
         .catch(error => console.error('Error updating event:', error));
     };
@@ -60,6 +61,17 @@ const EditEvent = () => {
             <div className="edit-event-content">
                 <h1>Edit Event</h1>
                 <form onSubmit={handleSubmit} className="event-form">
+                    <div className="form-group">
+                        <label htmlFor="eventID">Event ID:</label> {/* Display eventID */}
+                        <input 
+                            type="text" 
+                            id="eventID" 
+                            name="eventID" 
+                            value={event.eventID} 
+                            onChange={handleChange} 
+                            readOnly 
+                        />
+                    </div>
                     <div className="form-group">
                         <label htmlFor="eventName">Event Name:</label>
                         <input 

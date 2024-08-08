@@ -29,7 +29,13 @@ const AdminDashboard = () => {
         fetch(`http://localhost:4000/events/${eventID}`, {
             method: 'DELETE',
         })
-        .then(response => response.text())
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Failed to delete event');
+            }
+        })
         .then(message => {
             console.log(message);
             setEvents(events.filter(event => event.eventID !== eventID));
@@ -50,9 +56,10 @@ const AdminDashboard = () => {
                 <h2>Upcoming Events</h2>
                 <div className="event-cards">
                     {events.map(event => (
-                        <div key={event.eventID} className={`event-card`}>
+                        <div key={event.eventID} className="event-card">
                             <h3>{event.eventName}</h3>
                             <p>Artist: {event.eventArtist}</p>
+                            <p>EventID: {event.eventID}</p>
                             <p>Short Description: {event.eventShortDescription}</p>
                             <p>Description: {event.eventDescription}</p>
                             <p>Date: {event.eventStartDate} - {event.eventEndDate}</p>
