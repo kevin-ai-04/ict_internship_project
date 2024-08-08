@@ -169,21 +169,40 @@ app.listen(PORT, () => {
 });
 
 // Update a user by userID
+// app.put('/users/:userID', async (req, res) => {
+//   try {
+//       const userID = req.params._id;
+//       const updateData = req.body;
+
+//       const updatedUser = await userModel.findByIdAndUpdate(_id, updateData, { new: true });
+
+//       if (updatedUser) {
+//           res.send('User updated successfully');
+//       } else {
+//           res.status(404).send('User not found');
+//       }
+//   } catch (error) {
+//       console.error('Error updating user:', error);
+//       res.status(500).send('Internal Server Error');
+//   }
+// });
+
 app.put('/users/:userID', async (req, res) => {
-  try {
-      const userID = req.params._id;
+    try {
+      const userID = req.params.userID;
       const updateData = req.body;
-
-      const updatedUser = await userModel.findByIdAndUpdate(_id, updateData, { new: true });
-
+  
+      // Perform the update operation
+      const updatedUser = await userModel.findByIdAndUpdate(userID, updateData, { new: true });
+  
       if (updatedUser) {
-          res.send('User updated successfully');
+        res.json(updatedUser); // Send back the updated user
       } else {
-          res.status(404).send('User not found');
+        res.status(404).send('User not found');
       }
-  } catch (error) {
+    } catch (error) {
       console.error('Error updating user:', error);
       res.status(500).send('Internal Server Error');
-  }
-});
-
+    }
+  });
+  

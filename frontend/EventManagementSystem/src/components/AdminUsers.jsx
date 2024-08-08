@@ -18,7 +18,7 @@ const AdminUsers = () => {
     };
 
     const handleEditClick = (userID) => {
-        navigate(`/edituser/${userID}`);
+        navigate(`/edit-user/${userID}`);
     };
 
     const handleDeleteClick = (userID) => {

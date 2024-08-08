@@ -36,7 +36,8 @@ function App() {
       <Route path="/list/:eventID" element={<List />} />
       <Route path="/events/:eventID" element={<AdminDashboard />} />
       <Route path="/edit-event/:eventID" element={<EditEvent />} />
-      <Route path="/edituser/:id" element={<EditUser />} />
+      <Route path="/edit-user/:userID" element={<EditUser />} />
+
     </Routes>
     </>
   )

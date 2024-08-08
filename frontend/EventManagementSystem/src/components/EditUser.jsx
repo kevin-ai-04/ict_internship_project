@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './EditUser.css';
+import './EditUser.css'; // Assuming you have a CSS file for styling
 
 const EditUser = () => {
-    const { userID } = useParams(); // Extract userID from URL parameters
+    const { userID } = useParams(); // Assuming you're passing userID as a URL param
+    const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const history = useHistory();
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -17,6 +17,7 @@ const EditUser = () => {
                 setUser(response.data);
             } catch (error) {
                 setError('Error fetching user data');
+                console.error('Error fetching user:', error);
             } finally {
                 setLoading(false);
             }
@@ -32,12 +33,12 @@ const EditUser = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         try {
             await axios.put(`http://localhost:4000/users/${userID}`, user);
-            history.push('/users'); // Redirect after successful update
+            navigate('/admin/user'); // Redirect after successful update
         } catch (error) {
-            setError('Error updating user data');
+            console.error('Error updating user:', error);
+            setError('Error updating user');
         }
     };
 
@@ -85,8 +86,8 @@ const EditUser = () => {
                             onChange={(e) => setUser({ ...user, profilePic: e.target.value })}
                         />
                     </div>
-                    <button type="submit" className="submit-button">Save</button>
-                    <button type="button" className="cancel-button" onClick={() => history.push('/users')}>Cancel</button>
+                    <button type="submit" className="submit-button" >Save</button>
+                    <button type="button" className="cancel-button" onClick={() => navigate('/admin/user')}>Cancel</button>
                 </form>
             </div>
         </div>
