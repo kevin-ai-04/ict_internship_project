@@ -2,5 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  
+}
+
+.eventListSpacer{
+    margin-top: 100px;
 }

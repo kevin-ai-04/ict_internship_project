@@ -1,44 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-/* General Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.explore-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+  transition: transform 0.3s, background-color 0.3s;
 }
 
-body {
-  background-color: #181a26;
-  background-image: repeating-linear-gradient(
-    to right, transparent 0 100px,
-    rgba(129, 129, 141, 0.133) 100px 101px
-  ),
-  repeating-linear-gradient(
-    to bottom, transparent 0 100px,
-    rgba(129, 129, 141, 0.133) 100px 101px
-  );
+.explore-button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.2);
 }
 
-body::before {
-  position: absolute;
-  width: min(1400px, 90vw);
-  top: 10%;
-  left: 50%;
-  height: 90%;
-  transform: translateX(-50%);
-  content: '';
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: top center;
-  pointer-events: none;
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-/* Banner Styles */
 .banner {
   width: 100%;
   height: 100vh;
   text-align: center;
-  overflow: hidden;
   position: relative;
 }
 
@@ -66,12 +46,14 @@ body::before {
 .banner .slider .item {
   position: absolute;
   inset: 0 0 0 0;
-  transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
+  transform: 
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(350px);
 }
 
 .banner .slider .item img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: cover;
 }
 
@@ -82,7 +64,6 @@ body::before {
   transform: translateX(-50%);
   width: min(1400px, 100vw);
   height: max-content;
-  padding-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -91,10 +72,10 @@ body::before {
 }
 
 .banner .content h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16em;
+  font-family: 'Poppins';
+  font-size: 14em;
   line-height: 1em;
-  color: #25283B;
+  color: #ffffff;
   position: relative;
 }
 
@@ -102,22 +83,24 @@ body::before {
   position: absolute;
   inset: 0 0 0 0;
   content: attr(data-content);
-  z-index: 2;
-  -webkit-text-stroke: 2px #d2d2d2;
+  z-index: 1;
+  -webkit-text-stroke: 2px #545454;
   color: transparent;
 }
 
 .banner .content .author {
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins;
   text-align: right;
-  max-width: 200px;
+  max-width: 300px;
+  color: white;
 }
 
 .banner .content h2 {
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
 .banner .content .model {
+  background-image: url(images/model.png);
   width: 100%;
   height: 75vh;
   position: absolute;
@@ -136,7 +119,9 @@ body::before {
     left: calc(50% - 80px);
   }
   .banner .slider .item {
-    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(300px);
+    transform: 
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+      translateZ(300px);
   }
   .banner .content h1 {
     text-align: center;
@@ -163,7 +148,9 @@ body::before {
     left: calc(50% - 50px);
   }
   .banner .slider .item {
-    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(180px);
+    transform: 
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+      translateZ(180px);
   }
   .banner .content h1 {
     font-size: 5em;

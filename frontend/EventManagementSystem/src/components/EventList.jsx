@@ -22,6 +22,9 @@ const EventList = () => {
           ))}
         </div>
       </div>
+      <div className="eventListSpacer">
+        footer
+      </div>
     </>
   );
 };
